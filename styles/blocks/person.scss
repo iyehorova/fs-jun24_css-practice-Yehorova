@@ -1,0 +1,82 @@
+.person {
+  width: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  &__photo-container {
+    position: relative;
+  }
+
+  &__photo {
+    display: block;
+    width: $photo-size;
+    height: $photo-size;
+    border-radius: 50%;
+  }
+
+  &__rank {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+
+    background-color: $num-circle-color;
+    width: $num-circle-size;
+    height: $num-circle-size;
+    border-radius: 50%;
+    color: $num-color;
+    font-size: $num-font-size;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__info {
+    padding-top: 8px;
+    z-index: 2;
+  }
+
+  &__name {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  &__extra {
+    position: absolute;
+    display: none;
+  }
+  &:hover::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10px;
+    z-index: 1;
+    width: $card-width-hover;
+    height: 287px;
+    background-color: $background-card-color-hover;
+  }
+
+  &:hover &__extra {
+    display: flex;
+
+    justify-content: space-between;
+  }
+
+  &:hover &__photo-container {
+    z-index: 2;
+  }
+
+  &__pay::before {
+    content: "$";
+  }
+
+  &__pay::after {
+    content: "M";
+  }
+}
