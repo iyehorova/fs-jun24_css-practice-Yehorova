@@ -16,8 +16,15 @@
     width: $photo-size;
     height: $photo-size;
     border-radius: 50%;
+    transition: 1s;
   }
 
+  &:hover &__photo {
+    position: relative;
+    border-radius: 60px;
+    width: 240px;
+    height: 240px;
+  }
   &__rank {
     position: absolute;
     top: 50%;
@@ -38,7 +45,10 @@
 
   &__info {
     padding-top: 8px;
+    padding-inline: 35px;
     z-index: 2;
+    width: 100%;
+    text-align: center;
   }
 
   &__name {
@@ -50,6 +60,18 @@
   &__extra {
     position: absolute;
     display: none;
+    color: $accent-font-color;
+  }
+  &::after {
+    content: "";
+    display: none;
+    position: absolute;
+    top: -10px;
+    z-index: 1;
+    width: $card-width-hover;
+    height: 287px;
+    background-color: $background-card-color-hover;
+    transition: 1s;
   }
   &:hover::after {
     content: "";
@@ -57,14 +79,17 @@
     position: absolute;
     top: -10px;
     z-index: 1;
-    width: $card-width-hover;
-    height: 287px;
+    width: 264px;
+    height: 344px;
     background-color: $background-card-color-hover;
   }
 
   &:hover &__extra {
     display: flex;
-
+    box-sizing: border-box;
+    padding-inline: 35px;
+    width: 100%;
+    margin-top: 9px;
     justify-content: space-between;
   }
 
@@ -72,6 +97,9 @@
     z-index: 2;
   }
 
+  &__sport::after {
+    content: ", ";
+  }
   &__pay::before {
     content: "$";
   }
