@@ -1,105 +1,76 @@
 .person {
-  width: fit-content;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  width: $card-width;
+  transition: transform 1s;
   position: relative;
+
+  &:hover {
+    background-color: $background-card-color-hover;
+    margin: -10px -10px -20px;
+    padding: 10px 10px 20px;
+    transform: scale(1.2);
+    border-radius: 10px;
+    z-index: 2;
+
+    .person__extra {
+      opacity: 1;
+      transform: scaleY(1);
+      transition: 0s;
+    }
+  }
 
   &__photo-container {
     position: relative;
+    display: flex;
   }
 
   &__photo {
-    display: block;
-    width: $photo-size;
-    height: $photo-size;
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 50%;
-    transition: 1s;
   }
 
-  &:hover &__photo {
-    position: relative;
-    border-radius: 60px;
-    width: 240px;
-    height: 240px;
-  }
   &__rank {
+    box-sizing: border-box;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    text-align: center;
     right: 10px;
+    align-self: center;
 
+    font-size: $num-font-size;
+    line-height: $num-line-height;
+    color: $num-color;
+    width: 100%;
     background-color: $num-circle-color;
     width: $num-circle-size;
     height: $num-circle-size;
     border-radius: 50%;
-    color: $num-color;
-    font-size: $num-font-size;
 
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
-
-  &__info {
-    padding-top: 8px;
-    padding-inline: 35px;
-    z-index: 2;
-    width: 100%;
-    text-align: center;
+    justify-content: center;
   }
 
   &__name {
-    font-size: inherit;
-    line-height: inherit;
+    display: block;
+    text-align: center;
     color: inherit;
+    font-size: inherit;
   }
 
   &__extra {
-    position: absolute;
-    display: none;
+    text-align: center;
     color: $accent-font-color;
-  }
-  &::after {
-    content: "";
-    display: none;
-    position: absolute;
-    top: -10px;
-    z-index: 1;
-    width: $card-width-hover;
-    height: 287px;
-    background-color: $background-card-color-hover;
-    transition: 1s;
-  }
-  &:hover::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -10px;
-    z-index: 1;
-    width: 264px;
-    height: 344px;
-    background-color: $background-card-color-hover;
-  }
-
-  &:hover &__extra {
-    display: flex;
-    box-sizing: border-box;
-    padding-inline: 35px;
-    width: 100%;
-    margin-top: 9px;
-    justify-content: space-between;
-  }
-
-  &:hover &__photo-container {
-    z-index: 2;
+    margin-top: 8px;
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top;
+    transition: transform 0.5s, opacity 1s;
   }
 
   &__sport::after {
-    content: ", ";
+    content: ",";
   }
+
   &__pay::before {
     content: "$";
   }

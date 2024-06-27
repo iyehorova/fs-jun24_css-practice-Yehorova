@@ -1,0 +1,14 @@
+.people {
+  --column: 2;
+
+  padding-block: 30px 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--column), $card-width);
+  column-gap: 30;
+  width: fit-content;
+  margin: 0 auto;
+
+  @include onSmallDesktop {
+    --column: 4;
+  }
+}
