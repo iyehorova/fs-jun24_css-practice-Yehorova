@@ -1,7 +1,6 @@
 .person {
   width: $card-width;
   transition: transform 1s;
-  position: relative;
 
   &:hover {
     background-color: $background-card-color-hover;
