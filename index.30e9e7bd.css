@@ -27,7 +27,6 @@ body {
 .person {
   width: 200px;
   transition: transform 1s;
-  position: relative;
 }
 
 .person:hover {
